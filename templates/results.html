@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranked Resumes</title>
+    <style>
+        /* Reset and Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #6a11cb, #2575fc);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #333;
+            padding: 20px;
+        }
+        /* Container Styling */
+        .container {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #6a11cb;
+            margin-bottom: 1rem;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #2575fc;
+            margin-bottom: 1rem;
+        }
+        /* Resume List Styling */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #f3f3f3;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            font-size: 1.1em;
+            transition: transform 0.3s;
+        }
+        li:hover {
+            transform: scale(1.05);
+            background: #e6e6e6;
+        }
+        /* Resume Rank Styling */
+        .rank {
+            font-weight: bold;
+            color: #6a11cb;
+        }
+        .score {
+            color: #2575fc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Top Ranked Resumes</h1>
+
+        <h3>Uploaded Resume Score: <span class="score">{{ uploaded_resume_score }}</span></h3>
+
+        <h3>Top 10 Ranked Resumes:</h3>
+        <ul>
+            {% for resume in resumes %}
+                <li>
+                    <span class="rank">Rank {{ loop.index }}:</span> 
+                    {{ resume.id }} - 
+                    <span class="score">Score: {{ resume.score }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
