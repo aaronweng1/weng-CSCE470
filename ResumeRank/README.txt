@@ -1,3 +1,5 @@
+You need the data files, so download the .zip from the releases
+
 How to run:
 >python ap.py
 then, go to the local address:
